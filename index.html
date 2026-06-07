@@ -1265,6 +1265,11 @@
     .hero-side .photo.has-video video { transform: none; }
   }
 
+  @media (max-width: 600px) {
+    .hero-body { gap: 24px; }
+    .hero-side .photo.has-video, .hero-photo-meta { max-width: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     html { scroll-behavior: auto; }
