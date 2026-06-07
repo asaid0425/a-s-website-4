@@ -377,7 +377,7 @@
     color: var(--ink-2); letter-spacing: 0.2em; text-transform: uppercase;
   }
   .live-tag::before {
-    content: ""; width: 6px; height: 6px; background: var(--ink); display: inline-block;
+    content: ""; width: 6px; height: 6px; background: #3ad17a; display: inline-block;
     animation: blink 2.4s var(--ease) infinite;
   }
   @keyframes blink {
@@ -652,7 +652,7 @@
   @property --cursor-color {
     syntax: "<color>";
     inherits: true;
-    initial-value: #ff2d8e;
+    initial-value: #3ad17a;
   }
   @keyframes cursorHotPink {
     0%   { --cursor-color: #ff2d8e; }
@@ -666,12 +666,11 @@
     position: fixed; top: 0; left: 0;
     width: 14px; height: 14px;
     margin-left: -7px; margin-top: -7px;     /* center on pointer */
-    --cursor-color: #ff2d8e;                  /* hot pink */
+    --cursor-color: #3ad17a;                  /* green */
     background: var(--cursor-color, var(--ink));
     pointer-events: none;
     z-index: 9999;
     translate: -200px -200px;                /* off-screen initially */
-    animation: cursorHotPink 16s linear infinite;
     transition:
       width .55s var(--ease),
       height .55s var(--ease),
@@ -1287,7 +1286,7 @@
     .hero-side { margin-top: -205px; }
     .hero-side .photo.has-video { aspect-ratio: 1 / 1; transform: none !important; }
     .hero-side .photo.has-video, .hero-photo-meta { max-width: none; }
-    .hero-side .photo.has-video video { object-fit: cover; transform: translateY(-10px) scale(1.15); }
+    .hero-side .photo.has-video video { object-fit: cover; transform: translateY(-10px) scale(1.28); }
   }
 
   @media (prefers-reduced-motion: reduce) {
