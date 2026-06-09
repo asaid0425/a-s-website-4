@@ -385,6 +385,27 @@
     50%      { opacity: 0.25; }
   }
 
+  /* sound toggle in nav */
+  .sound-toggle {
+    flex-shrink: 0;
+    height: 38px;
+    display: inline-flex; align-items: center; gap: 11px;
+    padding: 0 13px;
+    border: 1px solid var(--hair); background: transparent;
+    cursor: pointer;
+    transition: border-color .3s var(--ease), background .3s var(--ease);
+  }
+  .sound-toggle:hover { border-color: var(--ink-3); background: rgba(239,237,230,0.04); }
+  .sound-toggle .wave { width: 80px; height: 20px; display: block; }
+  .sound-toggle .sound-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3);
+    white-space: nowrap; flex-shrink: 0;
+    display: inline-block; min-width: 70px; text-align: left;
+    transition: color .3s var(--ease);
+  }
+  .sound-toggle.playing .sound-label { color: var(--ink-2); }
+
   /* ─── section primitives ───────────────────────── */
 
   section.s { position: relative; padding: 160px 0; }
@@ -1321,10 +1342,16 @@
       </div>
       <div class="nav-spacer"></div>
       <div class="nav-cta">
+        <button id="soundToggle" class="sound-toggle" type="button" aria-pressed="true" aria-label="Toggle sound" title="Sound on / off">
+          <span class="sound-label">Sound on</span>
+          <canvas id="soundWave" class="wave" width="160" height="40" aria-hidden="true"></canvas>
+        </button>
         <a href="https://calendly.com/alisaid_design/intro" target="_blank" rel="noopener" class="btn btn-primary">WORK TOGETHER →</a>
       </div>
     </nav>
   </div>
+
+  <audio id="bgm" src="assets/quiet-times.mp3" loop preload="auto"></audio>
 
   <main id="top">
 
@@ -2004,6 +2031,7 @@
           if (scroll) scroll.scrollTop = 0;
           // play the muted slide videos only while the modal is open
           modal.querySelectorAll('video').forEach(v => { if (v.muted) v.play().catch(() => {}); });
+          if (window.__duckBgm) window.__duckBgm(true);
           const x = modal.querySelector('.cm-x');
           if (x) x.focus();
         }
@@ -2013,6 +2041,7 @@
           document.documentElement.style.overflow = '';
           // pause every modal video so nothing decodes in the background
           modal.querySelectorAll('video').forEach(v => v.pause());
+          if (window.__duckBgm) window.__duckBgm(false);
           if (lastFocus && lastFocus.focus) lastFocus.focus();
         }
         // stop the modal videos from decoding until the modal is opened
@@ -3444,6 +3473,191 @@
     <text x="124" y="470" font-family="ui-monospace, monospace" font-size="22" letter-spacing="8" fill="#6E6E68">— · — — ·  UI ARTIST</text>
   </svg>
 </template>
+
+  <script>
+    /* ─── background music: autoplay (with tap-fallback), toggle, modal ducking ─── */
+    (function () {
+      const audio = document.getElementById('bgm');
+      const toggle = document.getElementById('soundToggle');
+      if (!audio || !toggle) return;
+
+      const TARGET = 0.5;       // full background volume
+      const KEY = 'as_bgm_on';
+      audio.volume = 0;
+
+      let on = localStorage.getItem(KEY) === 'on';    // user intent (default off)
+      let ducked = false;                              // a modal is open
+      let raf = null;
+
+      function fade(to, ms, done) {
+        if (raf) cancelAnimationFrame(raf);
+        const from = audio.volume, t0 = performance.now();
+        (function step(now) {
+          const k = ms <= 0 ? 1 : Math.min(1, (now - t0) / ms);
+          audio.volume = Math.max(0, Math.min(1, from + (to - from) * k));
+          if (k < 1) raf = requestAnimationFrame(step);
+          else { raf = null; if (done) done(); }
+        })(t0);
+      }
+
+      // bring audio in line with current intent + duck state
+      function update(fadeIn, fadeOut) {
+        if (on && !ducked) {
+          audio.play().catch(() => {});
+          fade(TARGET, fadeIn);
+        } else {
+          fade(0, fadeOut, () => { if (!(on && !ducked)) audio.pause(); });
+        }
+      }
+
+      function reflect() {
+        toggle.classList.toggle('playing', on);
+        toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+        const label = toggle.querySelector('.sound-label');
+        if (label) label.textContent = on ? 'Sound on' : 'Sound off';
+      }
+
+      /* ─── live waveform: flowing lines + scatter dots from the audio signal ─── */
+      const canvas = toggle.querySelector('.wave');
+      const cctx = canvas ? canvas.getContext('2d') : null;
+      const CW = canvas ? canvas.width : 0, CH = canvas ? canvas.height : 0;
+      const MID = CH / 2;
+      let actx = null, analyser = null, tdata = null, freq = null, vizRaf = null;
+      let envLo = 0, envMid = 0, envHi = 0, envPiano = 0;   // per-band smoothed envelopes
+      const dots = [];                   // scattered points
+      for (let i = 0; i < 9; i++) {
+        dots.push({ x: Math.random() * CW, y: Math.random() * CH, ph: Math.random() * 6.28, sp: 0.6 + Math.random() * 1.2 });
+      }
+      // three interweaving sine ribbons, each reacting to a different frequency band
+      const LINES = [
+        { off: 0.0, amp: 1.00, a: 0.92, w: 1.5, cycles: 1.5, speed: 1.05, band: 'piano' },
+        { off: 2.1, amp: 0.82, a: 0.52, w: 1.2, cycles: 2.2, speed: -0.85, band: 'mid' },
+        { off: 4.2, amp: 0.70, a: 0.40, w: 1.0, cycles: 2.8, speed: 0.95, band: 'lo' }
+      ];
+      const GREEN = '58,209,122';
+      const GREY = '132,132,126';
+
+      function setupViz() {
+        if (actx) return true;
+        try {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC) return false;
+          actx = new AC();
+          const srcNode = actx.createMediaElementSource(audio);
+          analyser = actx.createAnalyser();
+          analyser.fftSize = 1024;
+          analyser.smoothingTimeConstant = 0.6;
+          tdata = new Uint8Array(analyser.fftSize);
+          freq = new Uint8Array(analyser.frequencyBinCount);
+          srcNode.connect(analyser);
+          analyser.connect(actx.destination);   // keep audio audible
+          return true;
+        } catch (e) { actx = null; return false; }
+      }
+
+      function drawLine(now, line, level, rgb) {
+        cctx.beginPath();
+        const phase = now * line.speed + line.off;
+        for (let x = 0; x <= CW; x++) {
+          const t = x / CW;
+          const taper = Math.sin(t * Math.PI);   // 0 at ends, 1 in the middle
+          // low-frequency carrier + a soft sub-harmonic for an organic weave
+          const s = Math.sin(t * Math.PI * 2 * line.cycles + phase)
+                  + 0.3 * Math.sin(t * Math.PI * line.cycles + phase * 1.3);
+          const y = MID - s * line.amp * level * MID * 0.62 * taper;
+          if (x === 0) cctx.moveTo(x, y); else cctx.lineTo(x, y);
+        }
+        cctx.strokeStyle = 'rgba(' + rgb + ',' + line.a + ')';
+        cctx.lineWidth = line.w;
+        cctx.lineJoin = 'round';
+        cctx.stroke();
+      }
+
+      // single always-on loop: live + green when sound is on, gentle + grey when off
+      function tick() {
+        vizRaf = requestAnimationFrame(tick);
+        if (!cctx) return;
+        const now = performance.now() / 1000;
+        const active = on && !ducked && !audio.paused && !!analyser;
+
+        let levels, sparkle, rgb, dotBase, dotGain;
+        if (active) {
+          analyser.getByteFrequencyData(freq);
+          const bandAvg = (a, b) => { let s = 0, c = 0; for (let i = a; i < b && i < freq.length; i++) { s += freq[i]; c++; } return c ? (s / c) / 255 : 0; };
+          envLo  += (bandAvg(1, 24)   - envLo)  * 0.55;
+          envMid += (bandAvg(24, 96)  - envMid) * 0.32;
+          envHi  += (bandAvg(96, 300) - envHi)  * 0.42;
+          // piano sits in the mid-upper range (~500Hz–3kHz) — melody + chord harmonics
+          envPiano += (bandAvg(12, 70) - envPiano) * 0.45;
+          levels = {
+            lo:  0.22 + Math.min(1, Math.pow(envLo, 1.8) * 3.6) * 0.78,
+            mid: 0.5 + Math.min(1, envMid * 3.6) * 0.5,
+            hi:  0.5 + Math.min(1, envHi  * 5.5) * 0.5,
+            piano: 0.24 + Math.min(1, Math.pow(envPiano, 1.5) * 4.2) * 0.76
+          };
+          sparkle = Math.min(1, envHi * 5.5);
+          rgb = GREEN; dotBase = 0.1; dotGain = 0.25 + sparkle * 0.5;
+        } else {
+          // synthetic gentle weave so the grey waveform still flows when muted
+          levels = {
+            lo:  0.34 + 0.20 * (0.5 + 0.5 * Math.sin(now * 0.9)),
+            mid: 0.34 + 0.22 * (0.5 + 0.5 * Math.sin(now * 1.3 + 1.7)),
+            hi:  0.30 + 0.22 * (0.5 + 0.5 * Math.sin(now * 1.7 + 3.1)),
+            piano: 0.34 + 0.20 * (0.5 + 0.5 * Math.sin(now * 1.1 + 0.6))
+          };
+          rgb = GREY; dotBase = 0.06; dotGain = 0.16;
+        }
+
+        cctx.clearRect(0, 0, CW, CH);
+        for (const p of dots) {
+          const tw = 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(now * p.sp + p.ph));
+          cctx.beginPath();
+          cctx.arc(p.x, p.y, 0.8, 0, 6.2832);
+          cctx.fillStyle = 'rgba(' + rgb + ',' + (dotBase + tw * dotGain).toFixed(3) + ')';
+          cctx.fill();
+        }
+        for (const line of LINES) drawLine(now, line, levels[line.band], rgb);
+      }
+
+      // ensure analyser is ready as soon as audio starts
+      audio.addEventListener('playing', function () {
+        setupViz();
+        if (actx && actx.state === 'suspended') actx.resume().catch(() => {});
+      });
+      // start the perpetual render loop
+      vizRaf = requestAnimationFrame(tick);
+
+      // toggle click
+      toggle.addEventListener('click', function () {
+        on = !on;
+        localStorage.setItem(KEY, on ? 'on' : 'off');
+        reflect();
+        update(600, 400);
+      });
+
+      // modal duck/unduck (called from the case-study modal)
+      window.__duckBgm = function (state) {
+        ducked = !!state;
+        update(700, 500);
+      };
+
+      reflect();
+
+      // attempt autoplay; if the browser blocks it, start on first interaction
+      if (on) {
+        audio.play().then(() => {
+          fade(TARGET, 900);
+        }).catch(() => {
+          const events = ['pointerdown', 'pointermove', 'mousemove', 'keydown', 'touchstart', 'scroll', 'wheel'];
+          const kick = function () {
+            if (on && !ducked) update(900, 0);
+            events.forEach(e => window.removeEventListener(e, kick));
+          };
+          events.forEach(e => window.addEventListener(e, kick, { passive: true }));
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
 
