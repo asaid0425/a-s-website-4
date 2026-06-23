@@ -21,9 +21,10 @@
 <meta name="twitter:title" content="Ali Said — UI artist for brands" />
 <meta name="twitter:description" content="Visual designer for startups and businesses — crafting product and web interfaces at frame-level, animated like film, made to be remembered." />
 <meta name="twitter:image" content="https://alisaid.studio/assets/og-logo.png" />
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=3" />
+<link rel="shortcut icon" href="assets/favicon-32.png?v=3" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=3" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -1529,9 +1530,13 @@
 
         <div class="gallery">
 
-          <figure class="plate reveal d1" style="grid-column: span 6;">
-            <div class="photo plate-frame has-media" style="aspect-ratio: 16/10;">
-              <video src="assets/product-interfaces-reel.mp4" muted loop playsinline autoplay preload="metadata" aria-label="ux motion reel — fig. 01"></video>
+          <figure class="plate reveal d1" style="grid-column: span 7;">
+            <div class="photo plate-frame has-media reel-clickable" style="aspect-ratio: 16/10;">
+              <video src="assets/ux-motion-reel.mp4" muted loop playsinline autoplay preload="metadata" aria-label="ux motion reel — fig. 01"></video>
+              <button class="reel-expand" type="button" aria-label="Expand reel with sound" data-reel-open>
+                <span class="rx-lbl">Expand</span>
+                <span class="rx-arrow" aria-hidden="true">↗</span>
+              </button>
               <span class="plate-tag">/ fig. 01</span>
               <span class="cnr tl"></span><span class="cnr tr"></span><span class="cnr bl"></span><span class="cnr br"></span>
               <span class="plate-mark">— · — — ·</span>
@@ -1539,7 +1544,7 @@
             <figcaption class="plate-cap"><span>UX MOTION REEL</span><span class="dim">interface / 2026</span></figcaption>
           </figure>
 
-          <figure class="plate reveal d2" style="grid-column: span 6;">
+          <figure class="plate reveal d2" style="grid-column: span 5;">
             <div class="photo plate-frame has-media" style="aspect-ratio: 4/3;">
               <img src="assets/work/finance-dashboard.jpg" alt="Finance dashboard interface" loading="lazy">
               <span class="plate-tag">/ fig. 02</span>
@@ -1698,7 +1703,7 @@
               case <b>studies</b> <span class="slash">/</span> selected.
             </h2>
             <p class="section-sub">
-              In-depth looks at three projects — the process, the decisions, the outcomes.
+              In-depth looks at four projects — the process, the decisions, the outcomes.
               Click any to open the full write-up.
             </p>
           </div>
@@ -1750,6 +1755,21 @@
               <div class="case-num">03 / case study</div>
               <h3 class="case-title">BMW <span class="slash">/</span> connected · wearable · voice ui</h3>
               <p class="case-desc">UI and motion for BMW Connected across mobile and wearable — ending with an AI-driven redesign of the in-car voice experience.</p>
+              <div class="case-foot">view case study <span class="ca-arr">→</span></div>
+            </div>
+          </button>
+
+          <button class="case-row case-open reveal d1" type="button" data-case-open data-case-target="caseRedesign" aria-haspopup="dialog">
+            <div class="photo plate-frame has-media">
+              <video src="assets/redesign/bevmo-teardown.mp4" muted loop playsinline autoplay preload="metadata" aria-label="UI redesign case studies"></video>
+              <span class="plate-tag">/ case 04</span>
+              <span class="cnr tl"></span><span class="cnr tr"></span><span class="cnr bl"></span><span class="cnr br"></span>
+              <span class="plate-mark">— · — — ·</span>
+            </div>
+            <div class="case-info">
+              <div class="case-num">04 / case study</div>
+              <h3 class="case-title">UI redesign <span class="slash">/</span> case studies</h3>
+              <p class="case-desc">Two redesigns — a BevMo add-to-cart video teardown, and a Smart Thermostat app audited against the Laws of UX.</p>
               <div class="case-foot">view case study <span class="ca-arr">→</span></div>
             </div>
           </button>
@@ -1939,6 +1959,25 @@
       .cm-vidgrid { display: grid; grid-template-columns: 1fr; gap: 48px; margin-top: 32px; }
       .cm-vidcap { margin: 16px auto 0; font-size: 15px; line-height: 1.55; color: var(--ink-3); text-align: center; max-width: 56ch; }
       .cm-vidcap b { color: var(--ink); font-weight: 500; }
+
+      .cm-redesign-divider {
+        margin: 8px 0 4px; padding: 0 0 30px; border-bottom: 1px solid var(--line-2);
+        display: flex; align-items: baseline; gap: 22px;
+      }
+      .cm-redesign-divider .rd-num {
+        font-family: 'JetBrains Mono', monospace; font-size: clamp(40px, 5vw, 64px);
+        font-weight: 300; line-height: 1; color: var(--line-2); flex-shrink: 0;
+      }
+      .cm-redesign-divider .rd-meta { display: flex; flex-direction: column; gap: 8px; }
+      .cm-redesign-divider .rd-kicker {
+        font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.24em;
+        text-transform: uppercase; color: var(--accent, #ec6a2e);
+      }
+      .cm-redesign-divider .rd-title {
+        margin: 0; font-weight: 300; font-size: clamp(26px, 3vw, 40px);
+        letter-spacing: -0.02em; line-height: 1.05; color: var(--ink);
+      }
+      .cm-redesign-divider .rd-sub { margin: 0; font-size: 14.5px; color: var(--ink-3); }
 
       .cm-timing { margin-top: 30px; border: 1px solid var(--line); }
       .cm-timing .tr { display: grid; grid-template-columns: 110px 92px 1fr 64px; gap: 16px; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--line); }
@@ -2418,6 +2457,169 @@
       </div>
     </div>
 
+    <!-- ════ case 04 — UI Redesign Case Studies ════ -->
+    <div id="caseRedesign" class="case-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="UI redesign case studies">
+      <div class="cm-backdrop" data-case-close></div>
+      <div class="cm-card" role="document">
+        <header class="cm-bar">
+          <div class="cm-bar-tag">/ case 04 — ui redesign · case studies</div>
+          <button class="cm-x" type="button" aria-label="Close case study" data-case-close>×</button>
+        </header>
+        <div class="cm-scroll">
+          <div class="cm-body">
+
+            <!-- title -->
+            <div class="cm-slide first">
+              <div class="cm-eyebrow">— case study 04 / ui redesign</div>
+              <h2 class="cm-title">UI redesign <span class="slash">/</span> case studies</h2>
+              <p class="cm-lead">Improving clarity, confidence, and interaction flow across consumer interfaces — two studies, two depths: a fast BevMo add-to-cart video teardown, and a deeper Smart Thermostat study audited against the Laws of UX.</p>
+              <div class="cm-chips">
+                <span class="cm-chip">UX / Product Design</span>
+                <span class="cm-chip">Mobile Web</span>
+                <span class="cm-chip">App</span>
+                <span class="cm-chip">Laws of UX</span>
+              </div>
+              <div class="cm-footy">UI Redesign · 01 / 12</div>
+            </div>
+
+            <!-- overview -->
+            <div class="cm-slide">
+              <div class="cm-label">UI redesign · 02 / 12 — overview</div>
+              <h3 class="cm-subtitle">Two studies, two depths.</h3>
+              <div class="cm-vcards c2" style="margin-top: 30px;">
+                <div class="cm-vcard"><div class="vc-num">01</div><h4 class="vc-title">BevMo Add-to-Cart</h4><p class="vc-desc">Mobile web redesign — a 90-second video teardown of checkout friction.</p><span class="vc-tag">Quick video case study</span></div>
+                <div class="cm-vcard"><div class="vc-num">02</div><h4 class="vc-title">Smart Thermostat</h4><p class="vc-desc">App redesign — a deeper study auditing the screen against the Laws of UX.</p><span class="vc-tag">Laws of UX study</span></div>
+              </div>
+            </div>
+
+            <!-- redesign 01 divider -->
+            <div class="cm-slide">
+              <div class="cm-redesign-divider">
+                <span class="rd-num">01</span>
+                <div class="rd-meta">
+                  <span class="rd-kicker">Redesign 01</span>
+                  <h3 class="rd-title">BevMo <span class="slash">/</span> add-to-cart</h3>
+                  <p class="rd-sub">Mobile web — a 90-second video teardown of checkout friction.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- bevmo video teardown -->
+            <div class="cm-slide">
+              <div class="cm-label">BevMo · video breakdown</div>
+              <h3 class="cm-subtitle">The teardown, in ninety seconds.</h3>
+              <div class="cm-video r16 cm-player" style="margin-top: 30px;">
+                <video src="assets/redesign/bevmo-teardown.mp4" loop playsinline preload="metadata"></video>
+                <button class="cm-play" type="button" aria-label="Play video"><span class="tri"></span></button>
+                <button class="cm-audio" type="button" aria-label="Toggle sound" aria-pressed="true"><span class="amk"></span><span class="aml">sound on</span></button>
+                <span class="cm-video-fallback">redesign/bevmo-teardown.mp4 — 90-second breakdown: problem → UX decision → redesigned interaction</span>
+              </div>
+              <p class="cm-caption">90-second breakdown video — problem → UX decision → redesigned interaction.</p>
+            </div>
+
+            <!-- bevmo outcome -->
+            <div class="cm-slide">
+              <div class="cm-label">BevMo · outcome</div>
+              <h3 class="cm-subtitle">What changed.</h3>
+              <div class="cm-flow" style="grid-template-columns: repeat(3, 1fr);">
+                <div><span class="fn">01</span><span class="ft">Clearer add-to-cart state</span></div>
+                <div><span class="fn">02</span><span class="ft">Stronger CTA hierarchy</span></div>
+                <div><span class="fn">03</span><span class="ft">Faster path to checkout</span></div>
+              </div>
+            </div>
+
+            <!-- redesign 02 divider -->
+            <div class="cm-slide">
+              <div class="cm-redesign-divider">
+                <span class="rd-num">02</span>
+                <div class="rd-meta">
+                  <span class="rd-kicker">Redesign 02</span>
+                  <h3 class="rd-title">Smart thermostat <span class="slash">/</span> app</h3>
+                  <p class="rd-sub">App redesign — audited against the Laws of UX.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- laws of ux audit -->
+            <div class="cm-slide">
+              <div class="cm-label">Thermostat · laws of ux audit</div>
+              <h3 class="cm-subtitle">Audited against the Laws of UX.</h3>
+              <p class="cm-text">Smart thermostat app. The original screen looks minimal — but the interface relies on the user to infer too much.</p>
+              <div class="cm-collabel" style="color: var(--accent, #ec6a2e); margin-top: 30px;">Before Redesign</div>
+              <div class="cm-img contain r169" style="margin-top: 16px;"><img src="assets/redesign/laws-of-ux-audit.png" alt="Smart thermostat screen audited against the Laws of UX"><span class="cm-img-fallback">redesign/laws-of-ux-audit.png — Laws of UX audit</span></div>
+              <p class="cm-caption">Visually simple, mentally ambiguous — the screen offloads too much inference onto the user.</p>
+            </div>
+
+            <!-- key problems -->
+            <div class="cm-slide">
+              <div class="cm-label">Thermostat · key ux problems</div>
+              <h3 class="cm-subtitle">Three things break the moment.</h3>
+              <div class="cm-vcards" style="margin-top: 30px;">
+                <div class="cm-vcard"><div class="vc-num">1</div><p class="vc-desc" style="font-size:15px;">Current vs. target temperature is unclear.</p></div>
+                <div class="cm-vcard"><div class="vc-num">2</div><p class="vc-desc" style="font-size:15px;">System state is under-explained.</p></div>
+                <div class="cm-vcard"><div class="vc-num">3</div><p class="vc-desc" style="font-size:15px;">Mode, fan, and schedule clutter the main control moment.</p></div>
+              </div>
+            </div>
+
+            <!-- reference + direction -->
+            <div class="cm-slide">
+              <div class="cm-label">Thermostat · reference &amp; direction</div>
+              <h3 class="cm-subtitle">Calm minimalism, with clarity added.</h3>
+              <p class="cm-text">The redesign keeps the calm minimalism of the reference, but improves clarity through labels, hierarchy, and progressive disclosure.</p>
+              <div class="cm-vcards" style="margin-top: 30px;">
+                <div class="cm-vcard"><div class="cm-img r43"><img src="assets/redesign/ref-1.jpg" alt="Reference 01"><span class="cm-img-fallback">redesign/ref-1.jpg</span></div><span class="vc-tag">Calm dial</span></div>
+                <div class="cm-vcard"><div class="cm-img r43"><img src="assets/redesign/ref-2.jpg" alt="Reference 02"><span class="cm-img-fallback">redesign/ref-2.jpg</span></div><span class="vc-tag">Hierarchy</span></div>
+                <div class="cm-vcard"><div class="cm-img r43"><img src="assets/redesign/ref-3.jpg" alt="Reference 03"><span class="cm-img-fallback">redesign/ref-3.jpg</span></div><span class="vc-tag">Soft shadow</span></div>
+              </div>
+            </div>
+
+            <!-- redesign strategy -->
+            <div class="cm-slide">
+              <div class="cm-label">Thermostat · redesign strategy</div>
+              <h3 class="cm-subtitle">From inference to clarity.</h3>
+              <div class="cm-twocol" style="grid-template-columns: 1fr 1fr;">
+                <div>
+                  <div class="cm-collabel">Before</div>
+                  <ul class="cm-purpose">
+                    <li><i>—</i> Current temp dominates the screen</li>
+                    <li><i>—</i> Target temperature is unclear</li>
+                    <li><i>—</i> Secondary controls always visible</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="cm-collabel" style="color: var(--accent, #ec6a2e);">After</div>
+                  <ul class="cm-purpose">
+                    <li><i>+</i> Current + target clarified</li>
+                    <li><i>+</i> System state explained in plain language</li>
+                    <li><i>+</i> Large dial control, front and center</li>
+                    <li><i>+</i> Secondary controls hidden behind one button</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- final redesign -->
+            <div class="cm-slide">
+              <div class="cm-label">Thermostat · final redesign</div>
+              <h3 class="cm-subtitle">Calmer, clearer, confident.</h3>
+              <div class="cm-img contain r169" style="margin-top: 30px;"><img src="assets/redesign/thermostat-before-after.png" alt="Thermostat redesign — before and after"><span class="cm-img-fallback">redesign/thermostat-before-after.png — before / after</span></div>
+            </div>
+
+            <!-- closing -->
+            <div class="cm-slide">
+              <div class="cm-label">Thermostat · design principle</div>
+              <div class="cm-takeaway">
+                <div class="tk-l">Key takeaway</div>
+                <p class="tk-q">Minimalism works best when it reduces ambiguity, not information — making each screen feel calmer, faster, and more confidence-building.</p>
+              </div>
+              <div class="cm-footy">UI Redesign · 12 / 12</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       (function () {
         const modals = Array.from(document.querySelectorAll('.case-modal'));
@@ -2532,9 +2734,9 @@
         transition: background-color .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
       }
       .testi-arrow:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); transform: translateY(-1px); }
-      .testi-track { position: relative; min-height: 1px; }
+      .testi-track { display: grid; }
       .testi-item {
-        position: absolute; inset: 0;
+        grid-area: 1 / 1;
         display: flex; flex-direction: column; gap: 36px;
         opacity: 0; visibility: hidden;
         transform: translateY(12px);
@@ -2542,7 +2744,6 @@
         pointer-events: none;
       }
       .testi-item.active {
-        position: relative;
         opacity: 1; visibility: visible; transform: none;
         pointer-events: auto;
       }
@@ -3896,6 +4097,86 @@
   </svg>
 </template>
 
+  <style>
+    /* reel expand button on fig. 01 — persistent, bottom-right */
+    .reel-expand {
+      position: absolute; right: 16px; bottom: 16px;
+      z-index: 4; display: inline-flex; align-items: center; gap: 12px;
+      padding: 12px 18px; border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(10,10,9,0.5); backdrop-filter: blur(8px);
+      color: #fff; cursor: pointer;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      transition: background-color .3s var(--ease), border-color .3s var(--ease);
+    }
+    .reel-expand:hover { background: rgba(10,10,9,0.78); border-color: rgba(255,255,255,0.7); }
+    .reel-expand .rx-arrow { font-size: 14px; font-weight: 300; line-height: 1; }
+
+    /* reel lightbox */
+    .reel-modal {
+      position: fixed; inset: 0; z-index: 9998;
+      display: flex; align-items: center; justify-content: center; padding: 4vmin;
+      background: rgba(7,7,6,0.92); backdrop-filter: blur(10px);
+      opacity: 0; visibility: hidden; transition: opacity .4s var(--ease), visibility .4s var(--ease);
+    }
+    .reel-modal.open { opacity: 1; visibility: visible; }
+    .reel-modal .rm-stage { position: relative; width: min(92vw, 1600px); max-height: 92vh; aspect-ratio: 16/9; }
+    .reel-modal video { width: 100%; height: 100%; object-fit: contain; background: #000; display: block; border: 1px solid rgba(255,255,255,0.12); }
+    .reel-modal .rm-close {
+      position: absolute; top: 12px; right: 12px; z-index: 5; width: 42px; height: 42px;
+      display: grid; place-content: center; cursor: pointer;
+      background: rgba(10,10,9,0.66); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.4); color: #fff;
+      font-size: 22px; line-height: 1; transition: border-color .3s var(--ease), background-color .3s var(--ease);
+    }
+    .reel-modal .rm-close:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+  </style>
+
+  <div class="reel-modal" id="reelModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="UX motion reel">
+    <div class="rm-stage">
+      <button class="rm-close" type="button" aria-label="Close reel" data-reel-close>×</button>
+      <video src="assets/ux-motion-reel.mp4" loop playsinline preload="metadata" controls controlsList="nodownload noremoteplayback" disablePictureInPicture></video>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById('reelModal');
+      if (!modal) return;
+      const video = modal.querySelector('video');
+      const openBtn = document.querySelector('[data-reel-open]');
+      const reelVideo = openBtn ? openBtn.closest('.plate-frame').querySelector('video') : null;
+      let lastFocus = null;
+
+      function open() {
+        lastFocus = document.activeElement;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.style.overflow = 'hidden';
+        if (reelVideo) reelVideo.pause();
+        video.muted = false; video.volume = 1; video.currentTime = 0;
+        video.play().catch(() => {});
+        const c = modal.querySelector('.rm-close'); if (c) c.focus();
+      }
+      function close() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.style.overflow = '';
+        video.pause();
+        if (reelVideo) reelVideo.play().catch(() => {});
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+      if (openBtn) openBtn.addEventListener('click', open);
+      const clickable = document.querySelector('.reel-clickable');
+      if (clickable) {
+        clickable.style.cursor = 'pointer';
+        clickable.addEventListener('click', e => { if (!e.target.closest('[data-reel-open]')) open(); });
+      }
+      modal.querySelectorAll('[data-reel-close]').forEach(b => b.addEventListener('click', close));
+      modal.addEventListener('click', e => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+    })();
+  </script>
 
 </body>
 </html>
