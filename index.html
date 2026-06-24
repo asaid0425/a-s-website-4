@@ -2652,14 +2652,36 @@
         let lastFocus = null;
         let current = null;
 
+        // Fully release a modal's videos so iOS frees their decode buffers.
+        // iOS limits the number of *loaded* videos (not just playing); after a few
+        // dense modals the budget is exhausted and later videos won't decode at all.
+        function releaseModal(modal) {
+          modal.querySelectorAll('video').forEach(v => {
+            v.pause();
+            const s = v.getAttribute('src');
+            if (s) { v.dataset.src = s; v._detaching = true; v.removeAttribute('src'); v.load(); }
+          });
+        }
+        function restoreModal(modal) {
+          modal.querySelectorAll('video').forEach(v => {
+            if (!v.getAttribute('src') && v.dataset.src) {
+              v._detaching = false;
+              v.setAttribute('src', v.dataset.src);   // triggers resource selection; play() will fetch+play
+            }
+          });
+        }
+
         function open(id) {
           const modal = document.getElementById(id);
           if (!modal) return;
           lastFocus = document.activeElement;
           current = modal;
+          // free every other modal's decode buffers before opening this one
+          modals.forEach(other => { if (other !== modal) releaseModal(other); });
           modal.classList.add('open');
           modal.setAttribute('aria-hidden', 'false');
           document.documentElement.style.overflow = 'hidden';
+          restoreModal(modal);
           const sc = modal.querySelector('.cm-scroll');
           if (sc) sc.scrollTop = 0;
           // play the ambient videos currently in view (rect-based; IntersectionObserver
@@ -2679,7 +2701,7 @@
           modal.classList.remove('open');
           modal.setAttribute('aria-hidden', 'true');
           document.documentElement.style.overflow = '';
-          modal.querySelectorAll('video').forEach(v => v.pause());
+          releaseModal(modal);
           if (lastFocus && lastFocus.focus) lastFocus.focus();
           current = null;
         }
@@ -2723,8 +2745,9 @@
         });
 
         // reveal labelled placeholder when a media file isn't there yet
+        // (ignore errors fired while we intentionally detach a src to free memory)
         document.querySelectorAll('.cm-video video').forEach(v => {
-          v.addEventListener('error', () => { const w = v.closest('.cm-video'); if (w) w.classList.add('missing'); });
+          v.addEventListener('error', () => { if (v._detaching) return; const w = v.closest('.cm-video'); if (w) w.classList.add('missing'); });
         });
         document.querySelectorAll('.cm-img img').forEach(im => {
           const mark = () => { const w = im.closest('.cm-img'); if (w) w.classList.add('missing'); };
