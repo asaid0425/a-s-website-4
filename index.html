@@ -1329,6 +1329,7 @@
         <a href="#testimonials">Testimonials</a>
         <a href="#packages">Packages</a>
         <a href="#studio">About</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-spacer"></div>
@@ -1768,7 +1769,7 @@
             </div>
             <div class="case-info">
               <div class="case-num">04 / case study</div>
-              <h3 class="case-title">UI redesign <span class="slash">/</span> case studies</h3>
+              <h3 class="case-title">UI redesigns / UX laws</h3>
               <p class="case-desc">Two redesigns — a BevMo add-to-cart video teardown, and a Smart Thermostat app audited against the Laws of UX.</p>
               <div class="case-foot">view case study <span class="ca-arr">→</span></div>
             </div>
@@ -1988,6 +1989,15 @@
       .cm-timing .tbar { position: absolute; top: 0; height: 100%; background: var(--ink-3); }
       .cm-timing .td { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-2); text-align: right; }
 
+      .cm-motion { display: block; margin-top: 30px; }
+      .cm-motion-list { list-style: none; margin: 0 0 36px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 44px; }
+      .cm-motion-list li { display: flex; gap: 22px; align-items: flex-start; padding: 15px 0; border-top: 1px solid var(--line); }
+      .cm-motion-list .mn { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent, #ec6a2e); padding-top: 5px; min-width: 26px; flex-shrink: 0; }
+      .cm-motion-list .mt { font-size: 16px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+      .cm-motion-list .md { font-size: 13.5px; color: var(--ink-3); margin-top: 3px; line-height: 1.4; }
+      .cm-motion .cm-video.phone { margin: 0 auto; aspect-ratio: auto; width: 100%; max-height: 88vh; display: flex; align-items: center; justify-content: center; background: #0e0f12; }
+      .cm-motion .cm-video.phone video { position: relative; width: auto; height: auto; max-width: 100%; max-height: 88vh; object-fit: contain; }
+
       .cm-takeaway { margin-top: 40px; padding: 28px 30px; border: 1px solid var(--line-2); background: var(--paper-2); }
       .cm-takeaway .tk-l { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
       .cm-takeaway .tk-q { margin: 0; font-size: clamp(18px, 2vw, 24px); font-weight: 400; line-height: 1.4; color: var(--ink); letter-spacing: -0.02em; }
@@ -2001,6 +2011,8 @@
         .cm-flow { grid-template-columns: 1fr 1fr; }
         .cm-quad { grid-template-columns: 1fr; }
         .cm-twocol { grid-template-columns: 1fr; }
+        .cm-motion { grid-template-columns: 1fr; gap: 28px; }
+        .cm-motion-list { grid-template-columns: 1fr; margin-bottom: 24px; }
         .cm-vidgrid { grid-template-columns: 1fr; }
         .cm-timing .tr { grid-template-columns: 84px 1fr 54px; }
         .cm-timing .tv { display: none; }
@@ -2471,7 +2483,7 @@
             <!-- title -->
             <div class="cm-slide first">
               <div class="cm-eyebrow">— case study 04 / ui redesign</div>
-              <h2 class="cm-title">UI redesign <span class="slash">/</span> case studies</h2>
+              <h2 class="cm-title">UI redesigns / UX laws</h2>
               <p class="cm-lead">Improving clarity, confidence, and interaction flow across consumer interfaces — two studies, two depths: a fast BevMo add-to-cart video teardown, and a deeper Smart Thermostat study audited against the Laws of UX.</p>
               <div class="cm-chips">
                 <span class="cm-chip">UX / Product Design</span>
@@ -2483,15 +2495,6 @@
             </div>
 
             <!-- overview -->
-            <div class="cm-slide">
-              <div class="cm-label">UI redesign · 02 / 12 — overview</div>
-              <h3 class="cm-subtitle">Two studies, two depths.</h3>
-              <div class="cm-vcards c2" style="margin-top: 30px;">
-                <div class="cm-vcard"><div class="vc-num">01</div><h4 class="vc-title">BevMo Add-to-Cart</h4><p class="vc-desc">Mobile web redesign — a 90-second video teardown of checkout friction.</p><span class="vc-tag">Quick video case study</span></div>
-                <div class="cm-vcard"><div class="vc-num">02</div><h4 class="vc-title">Smart Thermostat</h4><p class="vc-desc">App redesign — a deeper study auditing the screen against the Laws of UX.</p><span class="vc-tag">Laws of UX study</span></div>
-              </div>
-            </div>
-
             <!-- redesign 01 divider -->
             <div class="cm-slide">
               <div class="cm-redesign-divider">
@@ -2605,12 +2608,34 @@
               <div class="cm-img contain r169" style="margin-top: 30px;"><img src="assets/redesign/thermostat-before-after.png" alt="Thermostat redesign — before and after"><span class="cm-img-fallback">redesign/thermostat-before-after.png — before / after</span></div>
             </div>
 
+            <!-- motion design -->
+            <div class="cm-slide">
+              <div class="cm-label">Thermostat · motion design</div>
+              <h3 class="cm-subtitle">Every beat confirms the action.</h3>
+              <p class="cm-text">Each motion and haptic beat is a deliberate confirmation of the user's action — turning a simple temperature change into a sequence of clear, reassuring feedback.</p>
+              <div class="cm-motion">
+                <ol class="cm-motion-list">
+                  <li><span class="mn">01</span><div><div class="mt">Slider scales up on touch</div><div class="md">Gesture confirmation &amp; motion affordance.</div></div></li>
+                  <li><span class="mn">02</span><div><div class="mt">Haptic tick on engage</div><div class="md">A physical cue the control is now live.</div></div></li>
+                  <li><span class="mn">03</span><div><div class="mt">Digits animate as they change</div><div class="md">Makes each numeric step obvious.</div></div></li>
+                  <li><span class="mn">04</span><div><div class="mt">Haptic on release</div><div class="md">Confirms the new temperature is set.</div></div></li>
+                  <li><span class="mn">05</span><div><div class="mt">Header shifts to “Heating”</div><div class="md">System state changes in plain language.</div></div></li>
+                  <li><span class="mn">06</span><div><div class="mt">Notification confirms activation</div><div class="md">Reassures the system is running.</div></div></li>
+                </ol>
+                <div class="cm-video phone cm-player">
+                  <video src="assets/redesign/thermostat-motion.mp4" loop playsinline preload="metadata"></video>
+                  <button class="cm-play" type="button" aria-label="Play video"><span class="tri"></span></button>
+                  <span class="cm-video-fallback">redesign/thermostat-motion.mp4 — the redesigned dial with motion &amp; haptic feedback</span>
+                </div>
+              </div>
+            </div>
+
             <!-- closing -->
             <div class="cm-slide">
               <div class="cm-label">Thermostat · design principle</div>
               <div class="cm-takeaway">
                 <div class="tk-l">Key takeaway</div>
-                <p class="tk-q">Minimalism works best when it reduces ambiguity, not information — making each screen feel calmer, faster, and more confidence-building.</p>
+                <p class="tk-q">Minimalism works best when it reduces ambiguity, not information — and considered motion and haptics turn every interaction into a moment of confidence, confirming each action as it happens.</p>
               </div>
               <div class="cm-footy">UI Redesign · 12 / 12</div>
             </div>
@@ -3521,7 +3546,7 @@
       }
     </style>
 
-    <section class="faq" aria-label="Frequently asked questions">
+    <section class="faq" id="faq" aria-label="Frequently asked questions">
       <div class="container">
         <div class="faq-head reveal">
           <span class="faq-eyebrow"><span class="tk"></span> index / questions · 07</span>
@@ -3548,7 +3573,7 @@
               <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-pad">
-              <p class="faq-a-body">Most designers focus on usability or visuals. Ali Said focuses on <em>both</em> — combining high-end visual systems, motion, UX laws, and implementation-aware thinking to create products that feel memorable.</p>
+              <p class="faq-a-body">Most designers focus on usability or visuals. I focus on both — combining high-end visual systems, motion, UX laws, and implementation-aware thinking to create products that feel memorable.</p>
             </div></div></div>
           </div>
 
@@ -3845,6 +3870,38 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     els.forEach(el => io.observe(el));
+  })();
+
+  /* iOS-safe autoplay: explicitly play muted ambient videos.
+     iOS Safari ignores the `autoplay` attribute on videos that start hidden
+     (e.g. inside opacity:0 reveal wrappers), and CSS zoom can throw off
+     intersection math — so we play them outright and use the observer only to
+     (re)start them and to pause when they're well outside the viewport. */
+  (function () {
+    const ambient = Array.from(document.querySelectorAll('video[autoplay]'))
+      .filter(v => (v.muted || v.hasAttribute('muted')) && !v.closest('.case-modal') && !v.closest('.reel-modal'));
+    if (!ambient.length) return;
+
+    const kick = (v) => { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+
+    // play now, and again once each video can actually render frames
+    ambient.forEach(v => {
+      kick(v);
+      v.addEventListener('loadeddata', () => kick(v), { once: true });
+      v.addEventListener('canplay', () => kick(v), { once: true });
+    });
+    // retry shortly after load in case the first attempts were too early
+    window.addEventListener('load', () => ambient.forEach(kick));
+
+    if ('IntersectionObserver' in window) {
+      const vo = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) kick(e.target);
+          else e.target.pause();
+        });
+      }, { threshold: 0, rootMargin: '400px 0px 400px 0px' });   // generous margin so visible ones never pause
+      ambient.forEach(v => vo.observe(v));
+    }
   })();
 
   /* Scroll-driven parallax (skipped if reduce-motion) */
