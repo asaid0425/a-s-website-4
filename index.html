@@ -1717,7 +1717,7 @@
 
           <button class="case-row case-open reveal d1" type="button" data-case-open data-case-target="caseLinkedin" aria-haspopup="dialog">
             <div class="photo plate-frame has-media">
-              <video src="assets/linkedin/hero.mp4" muted loop playsinline autoplay preload="metadata" aria-label="LinkedIn UX motion"></video>
+              <video src="assets/linkedin/hero.mp4" poster="assets/linkedin/hero.poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="LinkedIn UX motion"></video>
               <span class="plate-tag">/ case 01</span>
               <span class="cnr tl"></span><span class="cnr tr"></span><span class="cnr bl"></span><span class="cnr br"></span>
               <span class="plate-mark">— · — — ·</span>
@@ -1732,7 +1732,7 @@
 
           <button class="case-row case-open reveal d1" type="button" data-case-open data-case-target="caseIntuit" aria-haspopup="dialog">
             <div class="photo plate-frame has-media">
-              <video class="fill" src="assets/intuit/hero.mp4" muted loop playsinline autoplay preload="metadata" aria-label="Intuit QuickBooks Self-Employed motion"></video>
+              <video class="fill" src="assets/intuit/hero.mp4" poster="assets/intuit/hero.poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Intuit QuickBooks Self-Employed motion"></video>
               <span class="plate-tag">/ case 02</span>
               <span class="cnr tl"></span><span class="cnr tr"></span><span class="cnr bl"></span><span class="cnr br"></span>
               <span class="plate-mark">— · — — ·</span>
@@ -1747,7 +1747,7 @@
 
           <button class="case-row case-open reveal d1" type="button" data-case-open data-case-target="caseBmw" aria-haspopup="dialog">
             <div class="photo plate-frame has-media">
-              <video src="assets/BMW-active.mp4" muted loop playsinline autoplay preload="metadata" aria-label="BMW Connected & in-car voice UI"></video>
+              <video src="assets/BMW-active.mp4" poster="assets/BMW-active.poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="BMW Connected & in-car voice UI"></video>
               <span class="plate-tag">/ case 03</span>
               <span class="cnr tl"></span><span class="cnr tr"></span><span class="cnr bl"></span><span class="cnr br"></span>
               <span class="plate-mark">— · — — ·</span>
@@ -1762,7 +1762,7 @@
 
           <button class="case-row case-open reveal d1" type="button" data-case-open data-case-target="caseRedesign" aria-haspopup="dialog">
             <div class="photo plate-frame has-media">
-              <video src="assets/redesign/bevmo-teardown.mp4" muted loop playsinline autoplay preload="metadata" aria-label="UI redesign case studies"></video>
+              <video src="assets/redesign/bevmo-teardown.mp4" poster="assets/redesign/bevmo-teardown.poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="UI redesign case studies"></video>
               <span class="plate-tag">/ case 04</span>
               <span class="cnr tl"></span><span class="cnr tr"></span><span class="cnr bl"></span><span class="cnr br"></span>
               <span class="plate-mark">— · — — ·</span>
@@ -2013,7 +2013,7 @@
         .cm-twocol { grid-template-columns: 1fr; }
         .cm-motion { grid-template-columns: 1fr; gap: 28px; }
         .cm-motion-list { grid-template-columns: 1fr; margin-bottom: 24px; }
-        .cm-motion .cm-video.phone { height: 70vh; max-height: 640px; }
+        .cm-motion .cm-video.phone { height: auto; max-height: none; aspect-ratio: 9 / 16; max-width: 360px; margin: 0 auto; }
         .cm-vidgrid { grid-template-columns: 1fr; }
         .cm-timing .tr { grid-template-columns: 84px 1fr 54px; }
         .cm-timing .tv { display: none; }
@@ -2047,7 +2047,7 @@
                 <span class="cm-chip">12 weeks</span>
               </div>
               <div class="cm-video r16" style="margin-top: 36px;">
-                <video src="assets/linkedin/hero.mp4" muted loop playsinline preload="none"></video>
+                <video src="assets/linkedin/hero.mp4" poster="assets/linkedin/hero.poster.jpg" muted loop playsinline preload="none"></video>
                 <span class="cm-video-fallback">linkedin/hero.mp4 — motion at work in a real product surface</span>
               </div>
               <div class="cm-footy">LinkedIn · 01 / 08</div>
@@ -2103,16 +2103,16 @@
             <div class="cm-slide">
               <div class="cm-label">LinkedIn · motion library — 10 compositions</div>
               <div class="cm-vidgrid">
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-01.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-01.mp4</span></div><p class="cm-vidcap"><b>Hiding Latency</b> — motion fills the wait so a slow load never feels like a stall.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-02.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-02.mp4</span></div><p class="cm-vidcap"><b>Interaction Sequence</b> — gesture confirmation, spatial relationship, and motion affordance in one flow.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-03.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-03.mp4</span></div><p class="cm-vidcap"><b>Pull to Refresh</b> — motion affordance — the gesture is acknowledged and the refresh reads clearly.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-04.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-04.mp4</span></div><p class="cm-vidcap"><b>Interaction Sequence</b> — gesture confirmation, spatial relationship, and motion affordance working together.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-05.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-05.mp4</span></div><p class="cm-vidcap"><b>Spatial Relationship</b> — the footer nav stays informationally separate — motion signals the hierarchy.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-06.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-06.mp4</span></div><p class="cm-vidcap"><b>Pull to Refresh</b> — motion affordance reinforces the gesture and the system's response.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-07.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-07.mp4</span></div><p class="cm-vidcap"><b>User Engagement</b> — gesture confirmation and motion affordance make an action feel responsive.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-08.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-08.mp4</span></div><p class="cm-vidcap"><b>Interaction Sequence</b> — gesture confirmation, spatial relationship, and motion affordance combined.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-09.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-09.mp4</span></div><p class="cm-vidcap"><b>404 — Brand Expression</b> — motion carries brand personality even in an empty or error state.</p></div>
-                <div><div class="cm-video r16"><video src="assets/linkedin/comp-10.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-10.mp4</span></div><p class="cm-vidcap"><b>404 — Brand Expression</b> — brand-expressive motion turns a dead end into a moment of delight.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-01.mp4" poster="assets/linkedin/comp-01.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-01.mp4</span></div><p class="cm-vidcap"><b>Hiding Latency</b> — motion fills the wait so a slow load never feels like a stall.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-02.mp4" poster="assets/linkedin/comp-02.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-02.mp4</span></div><p class="cm-vidcap"><b>Interaction Sequence</b> — gesture confirmation, spatial relationship, and motion affordance in one flow.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-03.mp4" poster="assets/linkedin/comp-03.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-03.mp4</span></div><p class="cm-vidcap"><b>Pull to Refresh</b> — motion affordance — the gesture is acknowledged and the refresh reads clearly.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-04.mp4" poster="assets/linkedin/comp-04.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-04.mp4</span></div><p class="cm-vidcap"><b>Interaction Sequence</b> — gesture confirmation, spatial relationship, and motion affordance working together.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-05.mp4" poster="assets/linkedin/comp-05.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-05.mp4</span></div><p class="cm-vidcap"><b>Spatial Relationship</b> — the footer nav stays informationally separate — motion signals the hierarchy.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-06.mp4" poster="assets/linkedin/comp-06.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-06.mp4</span></div><p class="cm-vidcap"><b>Pull to Refresh</b> — motion affordance reinforces the gesture and the system's response.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-07.mp4" poster="assets/linkedin/comp-07.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-07.mp4</span></div><p class="cm-vidcap"><b>User Engagement</b> — gesture confirmation and motion affordance make an action feel responsive.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-08.mp4" poster="assets/linkedin/comp-08.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-08.mp4</span></div><p class="cm-vidcap"><b>Interaction Sequence</b> — gesture confirmation, spatial relationship, and motion affordance combined.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-09.mp4" poster="assets/linkedin/comp-09.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-09.mp4</span></div><p class="cm-vidcap"><b>404 — Brand Expression</b> — motion carries brand personality even in an empty or error state.</p></div>
+                <div><div class="cm-video r16"><video src="assets/linkedin/comp-10.mp4" poster="assets/linkedin/comp-10.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">linkedin/comp-10.mp4</span></div><p class="cm-vidcap"><b>404 — Brand Expression</b> — brand-expressive motion turns a dead end into a moment of delight.</p></div>
               </div>
             </div>
 
@@ -2168,7 +2168,7 @@
                 <span class="cm-chip">Component Library</span>
                 <span class="cm-chip">Brand + UX</span>
               </div>
-              <div class="cm-video r43" style="margin-top: 36px;"><video src="assets/intuit/hero.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/hero.mp4 — motion at work across QuickBooks Self-Employed</span></div>
+              <div class="cm-video r43" style="margin-top: 36px;"><video src="assets/intuit/hero.mp4" poster="assets/intuit/hero.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/hero.mp4 — motion at work across QuickBooks Self-Employed</span></div>
               <div class="cm-footy">Intuit · 01 / 06</div>
             </div>
 
@@ -2199,21 +2199,21 @@
             <div class="cm-slide">
               <div class="cm-label">Intuit · 03 / 06 — loaders &amp; celebratory states</div>
               <div class="cm-vcards">
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/loader-1.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/loader-1.mp4</span></div><h4 class="vc-title">Determinate Loader</h4><p class="vc-desc">An ostensibly indeterminate loader that runs during the value proposition.</p><span class="vc-tag">UX · Hide latency</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/celeb-1.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/celeb-1.mp4</span></div><h4 class="vc-title">Celebratory Moment</h4><p class="vc-desc">Illustration animation to indicate achievement.</p><span class="vc-tag">UX · Motion affordance</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/loader-2.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/loader-2.mp4</span></div><h4 class="vc-title">Determinate Loader</h4><p class="vc-desc">A second loader treatment that runs during the value proposition.</p><span class="vc-tag">UX · Hide latency</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/celeb-2.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/celeb-2.mp4</span></div><h4 class="vc-title">Celebratory Moment</h4><p class="vc-desc">A second achievement animation with its own character.</p><span class="vc-tag">UX · Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/loader-1.mp4" poster="assets/intuit/loader-1.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/loader-1.mp4</span></div><h4 class="vc-title">Determinate Loader</h4><p class="vc-desc">An ostensibly indeterminate loader that runs during the value proposition.</p><span class="vc-tag">UX · Hide latency</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/celeb-1.mp4" poster="assets/intuit/celeb-1.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/celeb-1.mp4</span></div><h4 class="vc-title">Celebratory Moment</h4><p class="vc-desc">Illustration animation to indicate achievement.</p><span class="vc-tag">UX · Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/loader-2.mp4" poster="assets/intuit/loader-2.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/loader-2.mp4</span></div><h4 class="vc-title">Determinate Loader</h4><p class="vc-desc">A second loader treatment that runs during the value proposition.</p><span class="vc-tag">UX · Hide latency</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/celeb-2.mp4" poster="assets/intuit/celeb-2.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/celeb-2.mp4</span></div><h4 class="vc-title">Celebratory Moment</h4><p class="vc-desc">A second achievement animation with its own character.</p><span class="vc-tag">UX · Motion affordance</span></div>
               </div>
             </div>
 
             <div class="cm-slide">
               <div class="cm-label">Intuit · 04 / 06 — interactive components</div>
               <div class="cm-vcards">
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/checkbox.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/checkbox.mp4</span></div><h4 class="vc-title">Checkbox</h4><p class="vc-desc">Hover and enabled states.</p><span class="vc-tag">Affordance + confirmation</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/button.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/button.mp4</span></div><h4 class="vc-title">Button</h4><p class="vc-desc">Hover and selected states.</p><span class="vc-tag">Affordance + confirmation</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/slider.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/slider.mp4</span></div><h4 class="vc-title">Slider</h4><p class="vc-desc">Adjusting and selected value.</p><span class="vc-tag">Affordance + confirmation</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/toggle.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/toggle.mp4</span></div><h4 class="vc-title">Toggle</h4><p class="vc-desc">Enabled and disabled states.</p><span class="vc-tag">Confirmation + affordance</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/page-indicator.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/page-indicator.mp4</span></div><h4 class="vc-title">Page Indicator</h4><p class="vc-desc">Horizontal navigation.</p><span class="vc-tag">Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/checkbox.mp4" poster="assets/intuit/checkbox.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/checkbox.mp4</span></div><h4 class="vc-title">Checkbox</h4><p class="vc-desc">Hover and enabled states.</p><span class="vc-tag">Affordance + confirmation</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/button.mp4" poster="assets/intuit/button.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/button.mp4</span></div><h4 class="vc-title">Button</h4><p class="vc-desc">Hover and selected states.</p><span class="vc-tag">Affordance + confirmation</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/slider.mp4" poster="assets/intuit/slider.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/slider.mp4</span></div><h4 class="vc-title">Slider</h4><p class="vc-desc">Adjusting and selected value.</p><span class="vc-tag">Affordance + confirmation</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/toggle.mp4" poster="assets/intuit/toggle.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/toggle.mp4</span></div><h4 class="vc-title">Toggle</h4><p class="vc-desc">Enabled and disabled states.</p><span class="vc-tag">Confirmation + affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/page-indicator.mp4" poster="assets/intuit/page-indicator.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/page-indicator.mp4</span></div><h4 class="vc-title">Page Indicator</h4><p class="vc-desc">Horizontal navigation.</p><span class="vc-tag">Motion affordance</span></div>
               </div>
             </div>
 
@@ -2221,9 +2221,9 @@
               <div class="cm-label">Intuit · 05 / 06 — infographics</div>
               <p class="cm-text">Motion to reveal and exit infographic charts — giving data a sense of arrival.</p>
               <div class="cm-vcards" style="margin-top: 30px;">
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/bars.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/bars.mp4</span></div><h4 class="vc-title">Bar Chart</h4><p class="vc-desc">Reveal and exit motion for a bar infographic.</p><span class="vc-tag">UX · Motion affordance</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/circle.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/circle.mp4</span></div><h4 class="vc-title">Radial Chart</h4><p class="vc-desc">Reveal and exit motion for a circular infographic.</p><span class="vc-tag">UX · Motion affordance</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/lines.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/lines.mp4</span></div><h4 class="vc-title">Line Chart</h4><p class="vc-desc">Reveal and exit motion for a line infographic.</p><span class="vc-tag">UX · Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/bars.mp4" poster="assets/intuit/bars.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/bars.mp4</span></div><h4 class="vc-title">Bar Chart</h4><p class="vc-desc">Reveal and exit motion for a bar infographic.</p><span class="vc-tag">UX · Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/circle.mp4" poster="assets/intuit/circle.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/circle.mp4</span></div><h4 class="vc-title">Radial Chart</h4><p class="vc-desc">Reveal and exit motion for a circular infographic.</p><span class="vc-tag">UX · Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/intuit/lines.mp4" poster="assets/intuit/lines.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">intuit/lines.mp4</span></div><h4 class="vc-title">Line Chart</h4><p class="vc-desc">Reveal and exit motion for a line infographic.</p><span class="vc-tag">UX · Motion affordance</span></div>
               </div>
             </div>
 
@@ -2277,8 +2277,8 @@
               <div class="cm-vcards c2" style="margin-top: 30px;">
                 <div class="cm-vcard"><div class="cm-img r169"><img src="assets/bmw/ui-1.png" alt=""><span class="cm-img-fallback">bmw/ui-1.png</span></div><p class="vc-desc">BMW Connected — launched</p></div>
                 <div class="cm-vcard"><div class="cm-img r169"><img src="assets/bmw/ui-2.png" alt=""><span class="cm-img-fallback">bmw/ui-2.png</span></div><p class="vc-desc">BMW Connected — early concept</p></div>
-                <div class="cm-vcard"><div class="cm-video phone"><video src="assets/bmw/ui-3.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/ui-3.mp4</span></div><p class="vc-desc">BMW Connected — launched</p></div>
-                <div class="cm-vcard"><div class="cm-video phone"><video src="assets/bmw/ui-4.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/ui-4.mp4</span></div><p class="vc-desc">MINI Connected — launched</p></div>
+                <div class="cm-vcard"><div class="cm-video phone"><video src="assets/bmw/ui-3.mp4" poster="assets/bmw/ui-3.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/ui-3.mp4</span></div><p class="vc-desc">BMW Connected — launched</p></div>
+                <div class="cm-vcard"><div class="cm-video phone"><video src="assets/bmw/ui-4.mp4" poster="assets/bmw/ui-4.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/ui-4.mp4</span></div><p class="vc-desc">MINI Connected — launched</p></div>
               </div>
             </div>
 
@@ -2298,9 +2298,9 @@
             <div class="cm-slide">
               <div class="cm-label">BMW · connected — affordance &amp; gesture confirmation</div>
               <div class="cm-vcards">
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-1.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-1.mp4</span></div><h4 class="vc-title">Touch ID</h4><span class="vc-tag">Gesture confirmation</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-2.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-2.mp4</span></div><h4 class="vc-title">Tap Feedback</h4><span class="vc-tag">Gesture confirmation</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-3.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-3.mp4</span></div><h4 class="vc-title">Tip Notification</h4><span class="vc-tag">Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-1.mp4" poster="assets/bmw/aff-1.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-1.mp4</span></div><h4 class="vc-title">Touch ID</h4><span class="vc-tag">Gesture confirmation</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-2.mp4" poster="assets/bmw/aff-2.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-2.mp4</span></div><h4 class="vc-title">Tap Feedback</h4><span class="vc-tag">Gesture confirmation</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-3.mp4" poster="assets/bmw/aff-3.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-3.mp4</span></div><h4 class="vc-title">Tip Notification</h4><span class="vc-tag">Motion affordance</span></div>
               </div>
             </div>
 
@@ -2308,9 +2308,9 @@
             <div class="cm-slide">
               <div class="cm-label">BMW · connected — affordance &amp; gesture confirmation</div>
               <div class="cm-vcards">
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-4.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-4.mp4</span></div><h4 class="vc-title">Badging &amp; Notification</h4><span class="vc-tag">Motion affordance</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-5.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-5.mp4</span></div><h4 class="vc-title">Progressive PIN</h4><span class="vc-tag">Affordance + confirmation</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-6.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-6.mp4</span></div><h4 class="vc-title">Adding List Item</h4><span class="vc-tag">Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-4.mp4" poster="assets/bmw/aff-4.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-4.mp4</span></div><h4 class="vc-title">Badging &amp; Notification</h4><span class="vc-tag">Motion affordance</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-5.mp4" poster="assets/bmw/aff-5.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-5.mp4</span></div><h4 class="vc-title">Progressive PIN</h4><span class="vc-tag">Affordance + confirmation</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/aff-6.mp4" poster="assets/bmw/aff-6.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/aff-6.mp4</span></div><h4 class="vc-title">Adding List Item</h4><span class="vc-tag">Motion affordance</span></div>
               </div>
             </div>
 
@@ -2319,8 +2319,8 @@
               <div class="cm-label">BMW · connected — spatial orientation</div>
               <p class="cm-text">Motion that connects information spaces — building a cognitive map of how screens relate.</p>
               <div class="cm-vcards c2" style="margin-top: 30px;">
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/spatial-1.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/spatial-1.mp4</span></div><h4 class="vc-title">Screen Domains</h4><p class="vc-desc">Each screen has its own "home" to summon anytime.</p><span class="vc-tag">Spatial awareness</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/spatial-2.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/spatial-2.mp4</span></div><h4 class="vc-title">Card Expansion</h4><p class="vc-desc">Preserving continuity and narrative on expand.</p><span class="vc-tag">Spatial awareness</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/spatial-1.mp4" poster="assets/bmw/spatial-1.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/spatial-1.mp4</span></div><h4 class="vc-title">Screen Domains</h4><p class="vc-desc">Each screen has its own "home" to summon anytime.</p><span class="vc-tag">Spatial awareness</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/spatial-2.mp4" poster="assets/bmw/spatial-2.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/spatial-2.mp4</span></div><h4 class="vc-title">Card Expansion</h4><p class="vc-desc">Preserving continuity and narrative on expand.</p><span class="vc-tag">Spatial awareness</span></div>
               </div>
             </div>
 
@@ -2328,9 +2328,9 @@
             <div class="cm-slide">
               <div class="cm-label">BMW · connected — hiding latency</div>
               <div class="cm-vcards">
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-1.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-1.mp4</span></div><h4 class="vc-title">Frequency Variation</h4><span class="vc-tag">Hide latency</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-2.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-2.mp4</span></div><h4 class="vc-title">Software Update</h4><span class="vc-tag">Hide latency</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-3.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-3.mp4</span></div><h4 class="vc-title">Logo Loader</h4><span class="vc-tag">Hide latency</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-1.mp4" poster="assets/bmw/lat-1.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-1.mp4</span></div><h4 class="vc-title">Frequency Variation</h4><span class="vc-tag">Hide latency</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-2.mp4" poster="assets/bmw/lat-2.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-2.mp4</span></div><h4 class="vc-title">Software Update</h4><span class="vc-tag">Hide latency</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-3.mp4" poster="assets/bmw/lat-3.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-3.mp4</span></div><h4 class="vc-title">Logo Loader</h4><span class="vc-tag">Hide latency</span></div>
               </div>
             </div>
 
@@ -2338,8 +2338,8 @@
             <div class="cm-slide">
               <div class="cm-label">BMW · connected — hiding latency</div>
               <div class="cm-vcards c2">
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-4.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-4.mp4</span></div><h4 class="vc-title">Indeterminate</h4><span class="vc-tag">Hide latency</span></div>
-                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-5.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-5.mp4</span></div><h4 class="vc-title">Optimistic Feedback</h4><span class="vc-tag">Hide latency</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-4.mp4" poster="assets/bmw/lat-4.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-4.mp4</span></div><h4 class="vc-title">Indeterminate</h4><span class="vc-tag">Hide latency</span></div>
+                <div class="cm-vcard"><div class="cm-video r43"><video src="assets/bmw/lat-5.mp4" poster="assets/bmw/lat-5.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/lat-5.mp4</span></div><h4 class="vc-title">Optimistic Feedback</h4><span class="vc-tag">Hide latency</span></div>
               </div>
             </div>
 
@@ -2354,10 +2354,10 @@
             <div class="cm-slide">
               <div class="cm-label">BMW · wearable — motion</div>
               <div class="cm-vcards c4">
-                <div class="cm-vcard"><div class="cm-video r16"><video src="assets/bmw/wr-1.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/wr-1.mp4</span></div><h4 class="vc-title">Secondary Plane</h4><p class="vc-desc">A plane that lives on top of the initial information space.</p><span class="vc-tag">Spatial orientation</span></div>
-                <div class="cm-vcard"><div class="cm-video r16"><video src="assets/bmw/wr-2.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/wr-2.mp4</span></div><h4 class="vc-title">Reactive Plane</h4><p class="vc-desc">Secondary plane reacts to a tap by animating scale.</p><span class="vc-tag">Gesture confirmation</span></div>
-                <div class="cm-vcard"><div class="cm-video r16"><video src="assets/bmw/wr-3.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/wr-3.mp4</span></div><h4 class="vc-title">Collapsing Plane</h4><p class="vc-desc">Persistent secondary plane, minimized and summoned anytime.</p><span class="vc-tag">Gesture confirmation</span></div>
-                <div class="cm-vcard"><div class="cm-video r16"><video src="assets/bmw/wr-4.mp4" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/wr-4.mp4</span></div><h4 class="vc-title">Optimistic Feedback</h4><p class="vc-desc">Success conveyed before server communication completes.</p><span class="vc-tag">Hide latency</span></div>
+                <div class="cm-vcard"><div class="cm-video r16"><video src="assets/bmw/wr-1.mp4" poster="assets/bmw/wr-1.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/wr-1.mp4</span></div><h4 class="vc-title">Secondary Plane</h4><p class="vc-desc">A plane that lives on top of the initial information space.</p><span class="vc-tag">Spatial orientation</span></div>
+                <div class="cm-vcard"><div class="cm-video r16"><video src="assets/bmw/wr-2.mp4" poster="assets/bmw/wr-2.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/wr-2.mp4</span></div><h4 class="vc-title">Reactive Plane</h4><p class="vc-desc">Secondary plane reacts to a tap by animating scale.</p><span class="vc-tag">Gesture confirmation</span></div>
+                <div class="cm-vcard"><div class="cm-video r16"><video src="assets/bmw/wr-3.mp4" poster="assets/bmw/wr-3.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/wr-3.mp4</span></div><h4 class="vc-title">Collapsing Plane</h4><p class="vc-desc">Persistent secondary plane, minimized and summoned anytime.</p><span class="vc-tag">Gesture confirmation</span></div>
+                <div class="cm-vcard"><div class="cm-video r16"><video src="assets/bmw/wr-4.mp4" poster="assets/bmw/wr-4.poster.jpg" muted loop playsinline preload="none"></video><span class="cm-video-fallback">bmw/wr-4.mp4</span></div><h4 class="vc-title">Optimistic Feedback</h4><p class="vc-desc">Success conveyed before server communication completes.</p><span class="vc-tag">Hide latency</span></div>
               </div>
             </div>
 
@@ -2373,7 +2373,7 @@
                 <span class="cm-chip">Voice UI</span>
               </div>
               <div class="cm-video r16" style="margin-top: 30px;">
-                <video src="assets/BMW-active.mp4" muted loop playsinline preload="none"></video>
+                <video src="assets/BMW-active.mp4" poster="assets/BMW-active.poster.jpg" muted loop playsinline preload="none"></video>
                 <span class="cm-video-fallback">BMW-active.mp4 — the voice UI in its real context, the car</span>
               </div>
               <div class="cm-footy">BMW · voice ui · 01 / 04</div>
@@ -2397,7 +2397,7 @@
             <div class="cm-slide">
               <div class="cm-label">BMW · voice ui — wireframe</div>
               <div class="cm-video r16">
-                <video src="assets/vui-wire.mp4" muted loop playsinline preload="none"></video>
+                <video src="assets/vui-wire.mp4" poster="assets/vui-wire.poster.jpg" muted loop playsinline preload="none"></video>
                 <span class="cm-video-fallback">vui wire.mp4 — upload to assets/ to embed</span>
               </div>
               <p class="cm-text" style="margin-top: 24px;">The voice UI mapped as a state machine — every step in the search flow gets a distinct, legible signal so the driver always knows where they are.</p>
@@ -2418,7 +2418,7 @@
               <div class="cm-vcards">
                 <div class="cm-vcard">
                   <div class="cm-video r43">
-                    <video src="assets/BMW-active.mp4" muted loop playsinline preload="none"></video>
+                    <video src="assets/BMW-active.mp4" poster="assets/BMW-active.poster.jpg" muted loop playsinline preload="none"></video>
                     <span class="cm-video-fallback">BMW active.mp4</span>
                   </div>
                   <div class="vc-num">01</div>
@@ -2427,7 +2427,7 @@
                 </div>
                 <div class="cm-vcard">
                   <div class="cm-video r43">
-                    <video src="assets/BMW-listening.mp4" muted loop playsinline preload="none"></video>
+                    <video src="assets/BMW-listening.mp4" poster="assets/BMW-listening.poster.jpg" muted loop playsinline preload="none"></video>
                     <span class="cm-video-fallback">BMW listening.mp4</span>
                   </div>
                   <div class="vc-num">02</div>
@@ -2436,7 +2436,7 @@
                 </div>
                 <div class="cm-vcard">
                   <div class="cm-video r43">
-                    <video src="assets/BMW-loading.mp4" muted loop playsinline preload="none"></video>
+                    <video src="assets/BMW-loading.mp4" poster="assets/BMW-loading.poster.jpg" muted loop playsinline preload="none"></video>
                     <span class="cm-video-fallback">BMW loading.mp4</span>
                   </div>
                   <div class="vc-num">03</div>
